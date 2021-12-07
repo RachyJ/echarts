@@ -5,4 +5,4 @@ Learning echarts
 
 [Examples - Apache ECharts](https://echarts.apache.org/examples/en/index.html#chart-type-line)
 
-[API Documentation - Apache ECharts](https://echarts.apache.org/en/api.html#echarts)
+[API Documentation - Apache ECharts](https://echarts.apache.org/en/option.html#title)
