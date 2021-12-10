@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <!-- Include the ECharts file you just downloaded -->
+    <script src="dist/echarts.js"></script>
+
+</head>
+
+<body>
+    <div id="main" style="width: 600px;height: 400px;"></div>
+
+    <script type="text/javascript">
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            title:{
+                text: 'Waterfall chart',
+                subtext: 'Living expenses in Shenzhen'
+            },
+            tooltip:{
+                trigger:'axis',
+                axisPointer:{
+                    type:'shadow'
+                },
+                formatter:function(params){
+                    var tar = params[1];
+                    return tar.name + '<br/' + tar.seriesName + ':' + tar.value;
+                }
+            },
+            grid:{
+                left: '3%',
+                right:'4%',
+                bottom: '3%',
+                containLable: 'true'
+            },
+            xAxis:{
+                type:'category',
+                splitLine:{show: false},
+                data:['Total', 'Rent', 'Utilities', 'Transportation', 'Meals', 'Other']
+            },
+            yAxis:{
+                type:'value'
+            },
+            series:[
+                {
+                    name: 'Placeholder',
+                    type: 'bar',
+                    stack: 'Total',
+                    itemStyle:{
+                        borderColor:'transparent',
+                        color:'transparent'
+                    },
+                    emphasis:{
+                        itemStyle:{
+                            borderColor:'transparent',
+                            color:'transparent'
+                        }
+                    },
+                    data:[0, 1700, 1400, 1200, 300, 0]//the completing section which shows as transparent at bottom
+                },
+                {
+                    name:'Life cost',
+                    type:'bar',
+                    stack:'Total',
+                    label:{
+                        show:'true',
+                        position:'inside'
+                    },
+                    data:[2900, 1200, 300, 200, 900, 300]
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+        </script>
+        </body>
+        </html>
